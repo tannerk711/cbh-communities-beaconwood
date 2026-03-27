@@ -1,0 +1,73 @@
+---
+/* TEMPLATE: Update related community cards for each community (show 3 nearest) */
+const communities = [
+  {
+    name: 'Paramount',
+    city: 'Meridian, Idaho',
+    price: 'From $424,990',
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80',
+    link: 'https://cbhhomes.com/communities/meridian/paramount/',
+  },
+  {
+    name: 'Opalcrest',
+    city: 'Eagle, Idaho',
+    price: 'From $549,990',
+    image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80',
+    link: 'https://cbhhomes.com/communities/eagle/opalcrest/',
+  },
+  {
+    name: 'Skybreak',
+    city: 'Star, Idaho',
+    price: 'From $399,990',
+    image: 'https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=600&q=80',
+    link: 'https://cbhhomes.com/communities/star/skybreak/',
+  },
+];
+---
+
+<section class="section-padding bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-cbh-dark mb-4">
+        Explore More CBH Homes Communities
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+      {communities.map(c => (
+        <a
+          href={c.link}
+          target="_blank"
+          rel="noopener"
+          class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100"
+        >
+          <div class="relative overflow-hidden">
+            <img
+              src={c.image}
+              alt={`${c.name} community - new homes in ${c.city} by CBH Homes`}
+              class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-lg font-bold text-cbh-dark mb-1">{c.name}</h3>
+            <p class="text-sm text-cbh-slate/70 mb-2">{c.city}</p>
+            <p class="text-cbh-red font-semibold">{c.price}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="text-center">
+      <a
+        href="https://cbhhomes.com/communities/"
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 bg-cbh-red text-white font-semibold px-8 py-4 rounded-md hover:bg-cbh-red-dark hover:scale-[1.02] transition-all duration-200"
+      >
+        View All Communities
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </div>
+</section>

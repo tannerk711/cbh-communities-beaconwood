@@ -1,0 +1,94 @@
+---
+/* STATIC: CBH brand elements remain the same across all communities */
+const trustStats = [
+  { number: '#1', label: "Idaho's Top Builder" },
+  { number: '34', label: 'Years of Experience' },
+  { number: '29,000+', label: 'Happy Homeowners' },
+  { number: '1-2-6', label: 'Builder Warranty' },
+];
+
+const differentiators = [
+  {
+    icon: 'tour',
+    title: 'Self-Guided Tours',
+    desc: 'Tour on your schedule. Get your entry code online. No appointment, no pressure.',
+  },
+  {
+    icon: 'buy',
+    title: 'Buy Online',
+    desc: 'Reserve your home with no money down, right from your couch.',
+  },
+  {
+    icon: 'finance',
+    title: 'In-House Financing',
+    desc: 'Team Mandi at Premier Mortgage Resources offers rate buydown programs to save you thousands.',
+  },
+  {
+    icon: 'block',
+    title: 'On the Block Saturdays',
+    desc: 'Visit model homes every Saturday from 1–4 PM. Come find the party!',
+  },
+];
+---
+
+<section class="section-padding bg-cbh-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-cbh-dark mb-4">
+        Idaho's #1 Builder. Built Different for 34 Years
+      </h2>
+      <p class="text-lg text-cbh-slate max-w-2xl mx-auto">
+        Since 1992, CBH Homes has been building better homes and better experiences for Idaho families. From a pickup truck to Idaho's top builder, the craft, care, and commitment have never changed.
+      </p>
+    </div>
+
+    <!-- Trust Stats -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      {trustStats.map(stat => (
+        <div class="text-center bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <p class="font-display text-4xl sm:text-5xl font-bold text-cbh-red mb-2">{stat.number}</p>
+          <p class="text-sm text-cbh-slate/70 font-medium">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Differentiators -->
+    <div class="grid sm:grid-cols-2 gap-6">
+      {differentiators.map(d => (
+        <div class="flex items-start gap-4 bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200">
+          <div class="w-10 h-10 rounded-lg bg-cbh-red/20 flex items-center justify-center shrink-0">
+            {d.icon === 'tour' && (
+              <svg class="w-5 h-5 text-cbh-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+            )}
+            {d.icon === 'buy' && (
+              <svg class="w-5 h-5 text-cbh-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            )}
+            {d.icon === 'finance' && (
+              <svg class="w-5 h-5 text-cbh-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            )}
+            {d.icon === 'block' && (
+              <svg class="w-5 h-5 text-cbh-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            )}
+          </div>
+          <div>
+            <h3 class="font-semibold text-cbh-dark mb-1">{d.title}</h3>
+            <p class="text-sm text-cbh-slate/70 leading-relaxed">{d.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12">
+      <a
+        href="https://cbhhomes.com/about/"
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 text-cbh-red font-semibold hover:text-cbh-red-dark transition-colors duration-200"
+      >
+        Learn More About CBH Homes
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </div>
+</section>

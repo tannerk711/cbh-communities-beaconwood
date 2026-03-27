@@ -1,0 +1,79 @@
+---
+/* STATIC: In-page navigation pattern remains the same across all communities */
+import logoDesktop from '../assets/CBH-Built-Different-Logo-Desktop.png';
+import logoMobile from '../assets/CBH-Built-Different-Logo-Mobile.png';
+
+const navItems = [
+  { label: 'Overview', href: '#overview' },
+  { label: 'Homes', href: '#homes' },
+  { label: 'Interiors', href: '#interiors' },
+  { label: 'Amenities', href: '#amenities' },
+  { label: 'Location', href: '#location' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<nav id="page-nav" class="sticky top-10 z-40 bg-white border-b border-gray-200 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-1 overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
+      <!-- STATIC: CBH logo -->
+      <a href="https://cbhhomes.com" class="shrink-0 mr-4" aria-label="CBH Homes">
+        <img src={logoDesktop.src} alt="CBH Homes - Built Different" class="hidden sm:block h-7 w-auto" loading="eager" />
+        <img src={logoMobile.src} alt="CBH Homes - Built Different" class="sm:hidden h-6 w-auto" loading="eager" />
+      </a>
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class="page-nav-link relative whitespace-nowrap px-4 py-3.5 text-sm font-medium text-cbh-slate hover:text-cbh-red transition-colors shrink-0"
+          data-nav-link
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('[data-nav-link]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === `#${id}`) {
+            link.classList.add('text-cbh-red', 'after:scale-x-100');
+            link.classList.remove('text-cbh-slate');
+          } else {
+            link.classList.remove('text-cbh-red', 'after:scale-x-100');
+            link.classList.add('text-cbh-slate');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+<style>
+  [data-nav-link]::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background-color: #D0021B;
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+  }
+  [data-nav-link].after\:scale-x-100::after {
+    transform: scaleX(1);
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+</style>

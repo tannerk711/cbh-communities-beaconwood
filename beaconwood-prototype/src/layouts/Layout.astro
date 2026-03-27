@@ -1,0 +1,142 @@
+---
+/* TEMPLATE: Update title, description, og:image, and schema markup for each community */
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "New Homes in Eagle, Idaho | Beaconwood by CBH Homes | From $694,990",
+  description = "Discover Beaconwood, luxury move-in ready homes in Eagle, Idaho by CBH Homes, Idaho's #1 Builder. Prices from $694,990. Designer interiors, Level 5 & 6 finishes, scenic Bogus Basin views. Schedule your self-guided tour today."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href="https://cbhhomes.com/communities/eagle/beaconwood/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cbhhomes.com/communities/eagle/beaconwood/" />
+    <meta property="og:image" content="https://cbhhomes.com/communities/eagle/beaconwood/og-image.jpg" />
+    <meta property="og:site_name" content="CBH Homes" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- JSON-LD Schema: LocalBusiness -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Beaconwood by CBH Homes",
+      "description": "Luxury new construction homes in Eagle, Idaho by CBH Homes.",
+      "url": "https://cbhhomes.com/communities/eagle/beaconwood/",
+      "telephone": "(208) 391-5545",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5459 W Yarnell St",
+        "addressLocality": "Eagle",
+        "addressRegion": "ID",
+        "postalCode": "83616",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.71822,
+        "longitude": -116.423028
+      },
+      "openingHours": "Sa 13:00-16:00",
+      "priceRange": "$$$"
+    })} />
+
+    <!-- JSON-LD Schema: BreadcrumbList -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "CBH Homes", "item": "https://cbhhomes.com" },
+        { "@type": "ListItem", "position": 2, "name": "Communities", "item": "https://cbhhomes.com/communities/" },
+        { "@type": "ListItem", "position": 3, "name": "Eagle", "item": "https://cbhhomes.com/communities/eagle/" },
+        { "@type": "ListItem", "position": 4, "name": "Beaconwood", "item": "https://cbhhomes.com/communities/eagle/beaconwood/" }
+      ]
+    })} />
+
+    <!-- JSON-LD Schema: FAQPage -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much do homes at Beaconwood cost?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Homes at Beaconwood by CBH Homes start at $694,990. All homes are move-in ready with Level 5 & 6 designer finishes included. Contact our sales team at (208) 391-5545 for current availability and pricing." }
+        },
+        {
+          "@type": "Question",
+          "name": "What floor plans are available at Beaconwood?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Beaconwood offers multiple floor plans with open-concept layouts finished with CBH's Level 5 & 6 interior selections. View all available homes or schedule a self-guided tour to walk through in person." }
+        },
+        {
+          "@type": "Question",
+          "name": "What's included in a CBH Home at Beaconwood?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Every Beaconwood home includes Level 5 & 6 designer finishes: quartz countertops, Greyloch cabinetry, luxury vinyl plank flooring, premium tile backsplashes, and coordinated hardware and fixtures. Buyers choose from three designer colorways: Cool, Neutral, or Warm." }
+        },
+        {
+          "@type": "Question",
+          "name": "What school district serves Beaconwood?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Beaconwood is located within the West Ada School District, consistently rated among the top school districts in Idaho." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I schedule a self-guided tour of Beaconwood?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes! CBH Homes offers self-guided tours. You select a time online and receive your entry code. No appointment necessary and no pressure. Call (208) 391-5545 to get started." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there an HOA at Beaconwood?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, Beaconwood has a homeowners association managed by AMPM (ampmyhoa.com). Contact our sales team for current HOA fee information." }
+        },
+        {
+          "@type": "Question",
+          "name": "What financing options are available at Beaconwood?",
+          "acceptedAnswer": { "@type": "Answer", "text": "CBH Homes works with Team Mandi at Premier Mortgage Resources (NMLS #1169) to offer competitive financing including rate buydown programs. Ask about current promotions. Limited-time rate buydowns may be available." }
+        },
+        {
+          "@type": "Question",
+          "name": "How far is Beaconwood from downtown Boise?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Beaconwood is located in Eagle, Idaho, approximately 20 minutes from downtown Boise and 5 minutes from downtown Eagle. The community offers easy access to I-84 via Ten Mile Road." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is CBH Homes' warranty?",
+          "acceptedAnswer": { "@type": "Answer", "text": "CBH Homes provides a 1-2-6 warranty: 1 year on workmanship, 2 years on mechanical systems, and 6 years on structural components." }
+        }
+      ]
+    })} />
+  </head>
+  <body class="bg-cbh-white text-cbh-slate antialiased">
+    <slot />
+  </body>
+</html>

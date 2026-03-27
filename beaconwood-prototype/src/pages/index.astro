@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TopBar from '../components/TopBar.astro';
+import Hero from '../components/Hero.astro';
+import PageNav from '../components/PageNav.astro';
+import StatsStrip from '../components/StatsStrip.astro';
+import CommunityStory from '../components/CommunityStory.astro';
+import FloorPlans from '../components/FloorPlans.jsx';
+import DesignerInteriors from '../components/DesignerInteriors.jsx';
+import WhatsIncluded from '../components/WhatsIncluded.astro';
+import Amenities from '../components/Amenities.astro';
+import Location from '../components/Location.astro';
+import BuilderTrust from '../components/BuilderTrust.astro';
+import MultiStepLeadForm from '../components/MultiStepLeadForm.jsx';
+import FAQ from '../components/FAQ.astro';
+import SalesAgents from '../components/SalesAgents.astro';
+import RelatedCommunities from '../components/RelatedCommunities.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <TopBar />
+  <Hero />
+  <PageNav />
+  <StatsStrip />
+  <CommunityStory />
+  <FloorPlans client:visible />
+  <DesignerInteriors client:visible />
+  <WhatsIncluded />
+  <Amenities />
+  <Location />
+  <BuilderTrust />
+  <MultiStepLeadForm client:load communityName="Beaconwood" communitySlug="beaconwood-eagle" />
+  <FAQ />
+  <SalesAgents />
+  <RelatedCommunities />
+  <Footer />
+</Layout>

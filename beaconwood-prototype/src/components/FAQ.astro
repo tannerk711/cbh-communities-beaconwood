@@ -1,0 +1,65 @@
+---
+/* TEMPLATE: Update FAQ Q&As for each community */
+const faqs = [
+  {
+    q: 'How much do homes at Beaconwood cost?',
+    a: 'Homes at Beaconwood by CBH Homes start at $694,990. All homes are move-in ready with Level 5 & 6 designer finishes included. Contact our sales team at (208) 391-5545 for current availability and pricing.',
+  },
+  {
+    q: 'What floor plans are available at Beaconwood?',
+    a: 'Beaconwood offers multiple floor plans ranging from approximately 2,200 to 3,400 square feet [PLACEHOLDER]. Each plan features open-concept layouts and is finished with CBH\'s Level 5 & 6 interior selections. View all available homes above or schedule a self-guided tour to walk through in person.',
+  },
+  {
+    q: "What's included in a CBH Home at Beaconwood?",
+    a: 'Every Beaconwood home includes Level 5 & 6 designer finishes: quartz countertops, Greyloch cabinetry, luxury vinyl plank flooring, premium tile backsplashes, and coordinated hardware and fixtures. Buyers choose from three designer colorways: Cool, Neutral, or Warm.',
+  },
+  {
+    q: 'What school district serves Beaconwood?',
+    a: 'Beaconwood is located within the West Ada School District, consistently rated among the top school districts in Idaho.',
+  },
+  {
+    q: 'Can I schedule a self-guided tour of Beaconwood?',
+    a: 'Yes! CBH Homes offers self-guided tours. You select a time online and receive your entry code. No appointment necessary and no pressure. Visit our Tour Now page or call (208) 391-5545 to get started.',
+  },
+  {
+    q: 'Is there an HOA at Beaconwood?',
+    a: 'Yes, Beaconwood has a homeowners association managed by AMPM (ampmyhoa.com). Contact our sales team for current HOA fee information.',
+  },
+  {
+    q: 'What financing options are available at Beaconwood?',
+    a: 'CBH Homes works with Team Mandi at Premier Mortgage Resources (NMLS #1169) to offer competitive financing including rate buydown programs. Ask about current promotions. Limited-time rate buydowns may be available. Visit cbhhomes.com/home-loan-helper or call (208) 391-5545.',
+  },
+  {
+    q: 'How far is Beaconwood from downtown Boise?',
+    a: "Beaconwood is located in Eagle, Idaho, approximately 20 minutes from downtown Boise and 5 minutes from downtown Eagle. The community offers easy access to I-84 via Ten Mile Road.",
+  },
+  {
+    q: "What is CBH Homes' warranty?",
+    a: 'CBH Homes provides a 1-2-6 warranty: 1 year on workmanship, 2 years on mechanical systems, and 6 years on structural components.',
+  },
+];
+---
+
+<section id="faq" class="section-padding bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-cbh-dark mb-4">
+        Frequently Asked Questions About Beaconwood
+      </h2>
+    </div>
+
+    <div class="space-y-3">
+      {faqs.map((faq, i) => (
+        <details class="group bg-cbh-light rounded-lg overflow-hidden" open={i === 0}>
+          <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-gray-100 transition-colors duration-200">
+            <h3 class="font-semibold text-cbh-dark text-left pr-4">{faq.q}</h3>
+            <span class="faq-icon text-cbh-red text-2xl font-light transition-transform duration-200 shrink-0">+</span>
+          </summary>
+          <div class="px-5 pb-5">
+            <p class="text-cbh-slate leading-relaxed">{faq.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

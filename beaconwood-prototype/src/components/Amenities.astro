@@ -1,0 +1,66 @@
+---
+/* TEMPLATE: Update amenity list and lifestyle image for each community */
+const amenities = [
+  { icon: 'playground', label: 'Community Playground', desc: 'Safe, modern play areas for children of all ages' },
+  { icon: 'paths', label: 'Walking Paths', desc: 'Connected pathways for morning walks and evening strolls' },
+  { icon: 'green', label: 'Common Green Space', desc: 'Beautifully maintained open areas for gathering and relaxation' },
+  { icon: 'pet', label: 'Pet Waste Stations', desc: 'Conveniently placed throughout the community' },
+  { icon: 'views', label: 'Bogus Basin Views', desc: 'Scenic mountain views visible from the community' },
+];
+---
+
+<section id="amenities" class="section-padding bg-cbh-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="font-display text-3xl sm:text-4xl font-bold text-cbh-dark mb-12 text-center">
+      Life Outside Your Front Door
+    </h2>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Amenity List -->
+      <div class="space-y-6">
+        {amenities.map(a => (
+          <div class="flex items-start gap-4 bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow duration-200">
+            <div class="w-10 h-10 rounded-lg bg-cbh-red/10 flex items-center justify-center shrink-0 mt-0.5">
+              {a.icon === 'playground' && (
+                <svg class="w-5 h-5 text-cbh-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              )}
+              {a.icon === 'paths' && (
+                <svg class="w-5 h-5 text-cbh-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              )}
+              {a.icon === 'green' && (
+                <svg class="w-5 h-5 text-cbh-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+              )}
+              {a.icon === 'pet' && (
+                <svg class="w-5 h-5 text-cbh-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+              )}
+              {a.icon === 'views' && (
+                <svg class="w-5 h-5 text-cbh-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              )}
+            </div>
+            <div>
+              <h3 class="font-semibold text-cbh-dark mb-0.5">{a.label}</h3>
+              <p class="text-sm text-cbh-slate/70">{a.desc}</p>
+            </div>
+          </div>
+        ))}
+        <p class="text-xs text-cbh-slate/70 italic mt-4">
+          All proposed amenities are subject to change without notice.
+        </p>
+      </div>
+
+      <!-- Lifestyle Image -->
+      <div class="relative">
+        <img
+          src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80"
+          alt="Lifestyle in Eagle Idaho - scenic views and outdoor living near Beaconwood community"
+          class="w-full rounded-xl shadow-lg"
+          loading="lazy"
+        />
+        <div class="absolute -bottom-4 -right-4 bg-cbh-red text-white rounded-lg px-6 py-3 shadow-lg hidden md:block">
+          <p class="font-display text-lg font-bold">Eagle, Idaho</p>
+          <p class="text-sm text-white/80">Treasure Valley Living</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

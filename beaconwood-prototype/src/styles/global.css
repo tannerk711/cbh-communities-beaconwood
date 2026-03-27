@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* CBH Design Tokens */
+@theme {
+  --color-cbh-red: #D0021B;
+  --color-cbh-red-dark: #B00018;
+  --color-cbh-dark: #2D2D2D;
+  --color-cbh-slate: #4A4A4A;
+  --color-cbh-gray: #9CA3AF;
+  --color-cbh-light: #F9F8F6;
+  --color-cbh-white: #FFFFFF;
+
+  --font-display: 'Proxima Nova', 'Inter', Helvetica, Arial, sans-serif;
+  --font-body: 'Proxima Nova', 'Inter', Helvetica, Arial, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-cbh-slate);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* Utility classes */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* FAQ Accordion */
+details summary {
+  cursor: pointer;
+  list-style: none;
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .faq-icon {
+  transform: rotate(45deg);
+}
