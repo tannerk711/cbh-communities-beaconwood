@@ -1,10 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import TopBar from '../components/TopBar.astro';
 import Hero from '../components/Hero.astro';
 import PageNav from '../components/PageNav.astro';
 import StatsStrip from '../components/StatsStrip.astro';
 import CommunityStory from '../components/CommunityStory.astro';
+import CommunityVideo from '../components/CommunityVideo.astro';
 import FloorPlans from '../components/FloorPlans.jsx';
 import DesignerInteriors from '../components/DesignerInteriors.jsx';
 import WhatsIncluded from '../components/WhatsIncluded.astro';
@@ -15,14 +15,14 @@ import MultiStepLeadForm from '../components/MultiStepLeadForm.jsx';
 import FAQ from '../components/FAQ.astro';
 import SalesAgents from '../components/SalesAgents.astro';
 import RelatedCommunities from '../components/RelatedCommunities.astro';
-import Footer from '../components/Footer.astro';
+import CityLinks from '../components/CityLinks.astro';
 ---
 
 <Layout>
-  <TopBar />
   <Hero />
   <PageNav />
   <StatsStrip />
+  <CommunityVideo />
   <CommunityStory />
   <FloorPlans client:visible />
   <DesignerInteriors client:visible />
@@ -34,5 +34,5 @@ import Footer from '../components/Footer.astro';
   <FAQ />
   <SalesAgents />
   <RelatedCommunities />
-  <Footer />
+  <CityLinks />
 </Layout>

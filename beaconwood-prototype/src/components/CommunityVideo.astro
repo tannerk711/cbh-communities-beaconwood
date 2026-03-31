@@ -1,0 +1,112 @@
+---
+/* TEMPLATE: Update YouTube video ID, caption, and On the Block schedule for each community */
+---
+
+<section id="video" class="section-padding bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-cbh-dark leading-tight">
+        See Beaconwood for Yourself
+      </h2>
+      <p class="text-lg text-cbh-slate mt-3 max-w-2xl mx-auto">
+        Take a closer look at Eagle, Idaho's newest luxury community from CBH Homes.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-5 gap-8 items-start">
+      <!-- Video Column -->
+      <div class="lg:col-span-3">
+        <!-- YouTube Facade — loads iframe on click for performance -->
+        <div
+          class="relative aspect-video rounded-xl overflow-hidden shadow-xl cursor-pointer group bg-cbh-dark"
+          id="video-facade"
+        >
+          <img
+            src="https://img.youtube.com/vi/WFHq7p8_5XY/maxresdefault.jpg"
+            alt="Video: Introducing Beaconwood in Eagle by CBH Homes"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+          <!-- Dark overlay -->
+          <div class="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300"></div>
+          <!-- Play button -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-20 h-20 bg-cbh-red rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-sm text-cbh-gray mt-4">
+          Introducing Beaconwood in Eagle | CBH Homes
+        </p>
+      </div>
+
+      <!-- On the Block Card -->
+      <div class="lg:col-span-2">
+        <div class="bg-cbh-red rounded-xl overflow-hidden shadow-lg h-full flex flex-col justify-center">
+          <div class="p-8 text-center space-y-5">
+            <img
+              src="https://cbhhomes.com/content/themes/site/assets/images/on-the-block/CBH-On-The-Block-Logo-white-OTB.webp"
+              alt="CBH On the Block - Open House Saturdays"
+              class="h-24 w-auto mx-auto"
+              loading="lazy"
+            />
+            <div>
+              <p class="text-white font-bold text-xl">Saturdays 1–4 PM</p>
+              <p class="text-white/80 text-sm mt-2 leading-relaxed">
+                Tour model homes at On the Block every Saturday except the last Saturday of the month.
+              </p>
+            </div>
+            <a
+              href="https://cbhhomes.com/on-the-block/"
+              target="_blank"
+              rel="noopener"
+              class="inline-block bg-white text-cbh-red font-semibold px-8 py-3.5 rounded-md hover:bg-gray-50 hover:scale-[1.02] transition-all duration-200"
+            >
+              Come Find the Party!
+            </a>
+          </div>
+        </div>
+        <script>
+          // Show "HAPPENING TODAY" badge on qualifying Saturdays
+          (function() {
+            const now = new Date();
+            const isSaturday = now.getDay() === 6;
+            if (!isSaturday) return;
+            const nextSat = new Date(now);
+            nextSat.setDate(nextSat.getDate() + 7);
+            const isLastSaturday = nextSat.getMonth() !== now.getMonth();
+            if (isLastSaturday) return;
+            const logo = document.querySelector('[alt="CBH On the Block - Open House Saturdays"]');
+            if (logo) {
+              const badge = document.createElement('span');
+              badge.className = 'inline-block bg-white text-cbh-red text-xs font-bold px-3 py-1 rounded-full mt-2 animate-pulse';
+              badge.textContent = 'HAPPENING TODAY';
+              logo.parentElement.insertBefore(badge, logo.nextSibling);
+            }
+          })();
+        </script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const facade = document.getElementById('video-facade');
+  if (facade) {
+    facade.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/WFHq7p8_5XY?autoplay=1&rel=0';
+      iframe.title = 'Introducing Beaconwood in Eagle - CBH Homes';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.className = 'absolute inset-0 w-full h-full';
+      facade.innerHTML = '';
+      facade.classList.remove('cursor-pointer', 'group');
+      facade.classList.add('relative');
+      facade.appendChild(iframe);
+    });
+  }
+</script>

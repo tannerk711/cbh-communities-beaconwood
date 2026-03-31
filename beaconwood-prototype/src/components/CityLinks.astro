@@ -1,0 +1,71 @@
+---
+/* TEMPLATE: Update cities list for each community's region */
+const cities = [
+  { name: 'Eagle', slug: 'eagle', tagline: 'Luxury living with mountain views', current: true },
+  { name: 'Boise', slug: 'boise', tagline: "Idaho's vibrant capital city" },
+  { name: 'Meridian', slug: 'meridian', tagline: 'Family-friendly and fast-growing' },
+  { name: 'Nampa', slug: 'nampa', tagline: 'Affordable new construction' },
+  { name: 'Star', slug: 'star', tagline: 'Small-town charm, big potential' },
+  { name: 'Kuna', slug: 'kuna', tagline: 'Value in the Treasure Valley' },
+  { name: 'Middleton', slug: 'middleton', tagline: 'Rural feel, connected living' },
+  { name: 'Caldwell', slug: 'caldwell', tagline: 'Wine country living' },
+];
+---
+
+<section class="section-padding bg-cbh-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-cbh-dark leading-tight">
+        Explore New Homes Across the Treasure Valley
+      </h2>
+      <p class="text-lg text-cbh-slate mt-3 max-w-2xl mx-auto">
+        CBH Homes builds in communities throughout Idaho's most desirable cities.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {cities.map(city => (
+        <a
+          href={`https://cbhhomes.com/communities/${city.slug}/`}
+          target="_blank"
+          rel="noopener"
+          class:list={[
+            'relative block bg-white rounded-lg border p-5 hover:shadow-md hover:border-cbh-red/30 transition-all duration-200 group',
+            city.current ? 'border-cbh-red/40 ring-1 ring-cbh-red/20' : 'border-gray-200',
+          ]}
+        >
+          {city.current && (
+            <span class="absolute -top-2.5 left-4 bg-cbh-red text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+              You Are Here
+            </span>
+          )}
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="font-display font-bold text-cbh-dark group-hover:text-cbh-red transition-colors">
+                {city.name}
+              </h3>
+              <p class="text-xs text-cbh-gray mt-1">{city.tagline}</p>
+            </div>
+            <svg class="w-5 h-5 text-cbh-gray group-hover:text-cbh-red group-hover:translate-x-1 transition-all duration-200 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="text-center mt-8">
+      <a
+        href="https://cbhhomes.com/communities/"
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 text-cbh-red font-semibold hover:underline"
+      >
+        View All CBH Communities
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

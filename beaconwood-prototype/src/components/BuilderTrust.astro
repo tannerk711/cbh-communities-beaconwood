@@ -73,6 +73,12 @@ const differentiators = [
           <div>
             <h3 class="font-semibold text-cbh-dark mb-1">{d.title}</h3>
             <p class="text-sm text-cbh-slate/70 leading-relaxed">{d.desc}</p>
+            {d.icon === 'buy' && (
+              <a href="https://cbhhomes.com/buy-online/" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sm text-cbh-red font-semibold mt-2 hover:underline">
+                Reserve Your Home
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+            )}
           </div>
         </div>
       ))}

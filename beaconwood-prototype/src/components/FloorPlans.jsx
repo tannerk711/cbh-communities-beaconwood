@@ -4,67 +4,91 @@ import { useState } from 'react';
 const homes = [
   {
     id: 1,
-    name: 'The Ridgeline',
-    sqft: '2,456',
+    name: 'Milano 3250',
+    sqft: '3,250',
     beds: 4,
     baths: 3,
-    price: '$724,990',
+    price: '$873,990',
+    address: '5359 W Yarnell St',
     quickMove: true,
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80',
+    image: 'https://dvvjkgh94f2v6.cloudfront.net/1644840e/98970079/83dcefb7.jpeg',
+    detailUrl: 'https://cbhhomes.com/new-homes/eagle/83616/98970079/',
   },
   {
     id: 2,
-    name: 'The Summit',
-    sqft: '2,812',
+    name: 'Milano 3250',
+    sqft: '3,250',
     beds: 4,
-    baths: 3.5,
-    price: '$759,990',
+    baths: 3,
+    price: '$874,990',
+    address: '5487 W Yarnell St',
     quickMove: true,
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80',
+    image: 'https://dvvjkgh94f2v6.cloudfront.net/1644840e/98968343/83dcefb7.jpeg',
+    detailUrl: 'https://cbhhomes.com/new-homes/eagle/83616/98968343/',
   },
   {
     id: 3,
-    name: 'The Crestwood',
-    sqft: '3,105',
-    beds: 5,
-    baths: 4,
-    price: '$794,990',
-    quickMove: false,
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80',
+    name: 'Tamarack 3695',
+    sqft: '3,695',
+    beds: 4,
+    baths: 3.5,
+    price: '$974,990',
+    address: '5293 W Yarnell St',
+    quickMove: true,
+    image: 'https://dvvjkgh94f2v6.cloudfront.net/1644840e/98974761/83dcefb7.jpeg',
+    detailUrl: 'https://cbhhomes.com/new-homes/eagle/83616/98974761/',
   },
   {
     id: 4,
-    name: 'The Cascade',
-    sqft: '2,234',
-    beds: 3,
-    baths: 2.5,
-    price: '$694,990',
+    name: 'Tamarack 3695',
+    sqft: '3,695',
+    beds: 4,
+    baths: 3.5,
+    price: '$1,074,990',
+    address: '2972 N Schimigadoon Way',
     quickMove: true,
-    image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80',
+    image: 'https://dvvjkgh94f2v6.cloudfront.net/1644840e/98974766/83dcefb7.jpeg',
+    detailUrl: 'https://cbhhomes.com/new-homes/eagle/83616/98974766/',
   },
   {
     id: 5,
-    name: 'The Pinnacle',
-    sqft: '3,340',
+    name: 'Ponderosa 3937',
+    sqft: '3,937',
     beds: 5,
     baths: 4.5,
-    price: '$849,990',
-    quickMove: false,
-    image: 'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600&q=80',
+    price: '$1,159,990',
+    address: '5503 W Yarnell St',
+    quickMove: true,
+    image: 'https://dvvjkgh94f2v6.cloudfront.net/1644840e/98968140/83dcefb7.jpeg',
+    detailUrl: 'https://cbhhomes.com/new-homes/eagle/83669/98968140/',
   },
   {
     id: 6,
-    name: 'The Aspen',
-    sqft: '2,650',
-    beds: 4,
-    baths: 3,
-    price: '$739,990',
+    name: 'Ponderosa 3937',
+    sqft: '3,937',
+    beds: 5,
+    baths: 4.5,
+    price: '$1,161,990',
+    address: '5333 W Yarnell St',
     quickMove: true,
-    image: 'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=600&q=80',
+    image: 'https://dvvjkgh94f2v6.cloudfront.net/1644840e/98973295/83dcefb7.jpeg',
+    detailUrl: 'https://cbhhomes.com/new-homes/eagle/83616/98973295/',
+  },
+  {
+    id: 7,
+    name: 'Ponderosa 3937',
+    sqft: '3,937',
+    beds: 5,
+    baths: 4.5,
+    price: '$1,225,000',
+    address: '5390 W Yarnell St',
+    quickMove: true,
+    image: 'https://dvvjkgh94f2v6.cloudfront.net/1644840e/98968754/83dcefb7.jpeg',
+    detailUrl: 'https://cbhhomes.com/new-homes/eagle/83616/98968754/',
   },
 ];
 
-const filters = ['All', '3 Bed', '4 Bed', '5 Bed'];
+const filters = ['All', '4 Bed', '5 Bed'];
 
 export default function FloorPlans() {
   const [active, setActive] = useState('All');
@@ -77,7 +101,7 @@ export default function FloorPlans() {
     <section id="homes" className="py-20 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#2D2D2D] mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#1A1A1A] mb-4">
             Available Homes &amp; Floor Plans at Beaconwood
           </h2>
           <p className="text-lg text-[#4A4A4A] max-w-2xl mx-auto">
@@ -123,10 +147,13 @@ export default function FloorPlans() {
                 )}
               </div>
               <div className="p-5">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-bold text-[#2D2D2D]">{home.name}</h3>
+                <div className="flex items-center justify-between mb-1">
+                  <h3 className="text-lg font-bold text-[#1A1A1A]">{home.name}</h3>
                   <span className="text-[#D0021B] font-bold text-lg">{home.price}</span>
                 </div>
+                {home.address && (
+                  <p className="text-xs text-[#9CA3AF] mb-3">{home.address}, Eagle, ID</p>
+                )}
                 <div className="flex items-center gap-4 text-sm text-[#6B7280] mb-4">
                   <span className="flex items-center gap-1">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
@@ -136,7 +163,7 @@ export default function FloorPlans() {
                   <span>{home.baths} Baths</span>
                 </div>
                 <a
-                  href="https://cbhhomes.com/communities/eagle/beaconwood/"
+                  href={home.detailUrl}
                   target="_blank"
                   rel="noopener"
                   className="block w-full text-center bg-white border-2 border-[#D0021B] text-[#D0021B] font-semibold py-2.5 rounded-md hover:bg-[#D0021B] hover:text-white transition-all duration-200"
